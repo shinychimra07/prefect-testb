@@ -154,3 +154,7 @@ Join a thriving community of over 25,000 practitioners who solve data challenges
 
 Your contributions, questions, and ideas make Prefect better every day. Whether you're reporting bugs, suggesting features, or improving documentation, your input is invaluable to the Prefect community.
 
+
+## TestBot Integration
+
+This fork includes Skyramp TestBot integration for automated test maintenance. The TestBot workflow is configured to run on pull requests to help maintain and update tests as the codebase evolves.
