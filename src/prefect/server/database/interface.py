@@ -307,6 +307,11 @@ class PrefectDBInterface(metaclass=DBSingleton):
         return orm_models.Variable
 
     @property
+    def Item(self) -> type[orm_models.Item]:
+        """An item model"""
+        return orm_models.Item
+
+    @property
     def FlowRunInput(self) -> type[orm_models.FlowRunInput]:
         """A flow run input model"""
         return orm_models.FlowRunInput
