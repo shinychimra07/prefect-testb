@@ -1084,3 +1084,43 @@ class VariableUpdate(ActionBaseModel):
         description="A list of variable tags",
         examples=[["tag-1", "tag-2"]],
     )
+
+
+class ItemCreate(ActionBaseModel):
+    """Data used by the Prefect REST API to create an Item."""
+
+    name: str = Field(
+        default=...,
+        description="The name of the item",
+        examples=["my-item"],
+        max_length=255,
+    )
+    description: Optional[str] = Field(
+        default=None,
+        description="A description of the item",
+        examples=["A useful item"],
+    )
+    tags: list[str] = Field(
+        default_factory=list,
+        description="A list of item tags",
+        examples=[["tag-1", "tag-2"]],
+    )
+
+
+class ItemUpdate(ActionBaseModel):
+    """Data used by the Prefect REST API to update an Item."""
+
+    name: Optional[str] = Field(
+        default=None,
+        description="The name of the item",
+        max_length=255,
+    )
+    description: Optional[str] = Field(
+        default=None,
+        description="A description of the item",
+    )
+    tags: Optional[list[str]] = Field(
+        default=None,
+        description="A list of item tags",
+        examples=[["tag-1", "tag-2"]],
+    )

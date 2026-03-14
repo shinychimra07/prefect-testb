@@ -1300,6 +1300,25 @@ class Variable(ORMBaseModel):
     )
 
 
+class Item(ORMBaseModel):
+    name: str = Field(
+        default=...,
+        description="The name of the item",
+        examples=["my-item"],
+        max_length=255,
+    )
+    description: Optional[str] = Field(
+        default=None,
+        description="A description of the item",
+        examples=["A useful item"],
+    )
+    tags: List[str] = Field(
+        default_factory=list,
+        description="A list of item tags",
+        examples=[["tag-1", "tag-2"]],
+    )
+
+
 class FlowRunInput(ORMBaseModel):
     flow_run_id: UUID = Field(description="The flow run ID associated with the input.")
     key: Annotated[str, AfterValidator(raise_on_name_alphanumeric_dashes_only)] = Field(

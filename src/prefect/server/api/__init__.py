@@ -26,6 +26,7 @@ from . import (
     task_workers,
     templates,
     ui,
+    items,
     variables,
     work_queues,
     workers,

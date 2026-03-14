@@ -1238,6 +1238,14 @@ class Variable(Base):
     __table_args__: Any = (sa.UniqueConstraint("name"),)
 
 
+class Item(Base):
+    name: Mapped[str]
+    description: Mapped[Optional[str]]
+    tags: Mapped[list[str]] = mapped_column(JSON, server_default="[]", default=list)
+
+    __table_args__: Any = (sa.UniqueConstraint("name"),)
+
+
 class FlowRunInput(Base):
     flow_run_id: Mapped[uuid.UUID] = mapped_column(
         sa.ForeignKey("flow_run.id", ondelete="cascade")
@@ -1496,6 +1504,7 @@ ORMWorkPool = WorkPool
 ORMWorker = Worker
 ORMAgent = Agent
 ORMVariable = Variable
+ORMItem = Item
 ORMFlowRunInput = FlowRunInput
 ORMCsrfToken = CsrfToken
 ORMAutomation = Automation

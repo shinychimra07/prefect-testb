@@ -109,6 +109,7 @@ API_ROUTERS = (
     api.block_schemas.router,
     api.block_capabilities.router,
     api.collections.router,
+    api.items.router,
     api.variables.router,
     api.csrf_token.router,
     api.events.router,
