@@ -736,3 +736,15 @@ class FlowRunBulkCreateResponse(PrefectBaseModel):
     """Response from bulk flow run creation."""
 
     results: List[FlowRunCreateResult] = Field(default_factory=list)
+
+
+class FlowRunStatsResponse(BaseModel):
+    """Aggregate statistics about flow runs for a given flow."""
+
+    total_runs: int
+    completed_runs: int
+    failed_runs: int
+    cancelled_runs: int
+    running_runs: int
+    avg_duration_seconds: Optional[float] = None
+    success_rate: float
