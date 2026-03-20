@@ -1,0 +1,94 @@
+[
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "{\"name\": \"test-flow-stats-1742435200\"}",
+    "ResponseBody": "{\"id\": \"aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa\", \"name\": \"test-flow-stats-1742435200\", \"created\": \"2024-01-01T00:00:00Z\", \"updated\": \"2024-01-01T00:00:00Z\"}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "POST",
+    "Path": "/api/flows/",
+    "QueryParams": {},
+    "StatusCode": 201,
+    "Port": 4200,
+    "Timestamp": "2026-03-20T04:48:59.371Z",
+    "Scheme": "http"
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "{\"flow_id\": \"aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa\", \"name\": \"test-run-stats-1742435200\"}",
+    "ResponseBody": "{\"id\": \"bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb\", \"flow_id\": \"aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa\", \"name\": \"test-run-stats-1742435200\", \"state\": {\"type\": \"SCHEDULED\", \"name\": \"Scheduled\"}, \"created\": \"2024-01-01T00:00:00Z\", \"updated\": \"2024-01-01T00:00:00Z\"}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "POST",
+    "Path": "/api/flow_runs/",
+    "QueryParams": {},
+    "StatusCode": 201,
+    "Port": 4200,
+    "Timestamp": "2026-03-20T04:49:05.403Z",
+    "Scheme": "http"
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "{\"state\": {\"type\": \"COMPLETED\", \"name\": \"Completed\", \"message\": \"Flow run completed successfully\"}, \"force\": true}",
+    "ResponseBody": "{\"id\": \"cccccccc-cccc-cccc-cccc-cccccccccccc\", \"status\": \"ACCEPT\", \"state\": {\"type\": \"COMPLETED\", \"name\": \"Completed\", \"id\": \"cccccccc-cccc-cccc-cccc-cccccccccccc\"}}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "POST",
+    "Path": "/api/flow_runs/bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb/set_state",
+    "QueryParams": {},
+    "StatusCode": 201,
+    "Port": 4200,
+    "Timestamp": "2026-03-20T04:49:11.250Z",
+    "Scheme": "http"
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "",
+    "ResponseBody": "{\"total_runs\": 1, \"completed_runs\": 1, \"failed_runs\": 0, \"cancelled_runs\": 0, \"running_runs\": 0, \"avg_duration_seconds\": null, \"success_rate\": 100.0}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "GET",
+    "Path": "/api/flow_runs/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/stats",
+    "QueryParams": {},
+    "StatusCode": 200,
+    "Port": 4200,
+    "Timestamp": "2026-03-20T04:49:16.454Z",
+    "Scheme": "http"
+  }
+]
