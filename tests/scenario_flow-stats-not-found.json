@@ -1,0 +1,25 @@
+[
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "",
+    "ResponseBody": "{\"detail\": \"Flow '00000000-0000-0000-0000-000000000001' not found.\"}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "GET",
+    "Path": "/api/flow_runs/00000000-0000-0000-0000-000000000001/stats",
+    "QueryParams": {},
+    "StatusCode": 404,
+    "Port": 4200,
+    "Timestamp": "2026-03-20T04:50:11.478Z",
+    "Scheme": "http"
+  }
+]
