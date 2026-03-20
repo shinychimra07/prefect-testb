@@ -50,6 +50,7 @@ from prefect.server.schemas.responses import (
     FlowRunBulkSetStateResponse,
     FlowRunOrchestrationResult,
     FlowRunPaginationResponse,
+    FlowRunStatsResponse,
     OrchestrationResult,
 )
 from prefect.server.utilities.server import PrefectRouter
@@ -1062,3 +1063,54 @@ async def update_flow_run_labels(
         await models.flow_runs.update_flow_run_labels(
             session=session, flow_run_id=flow_run_id, labels=labels
         )
+
+
+@router.get("/{id:uuid}/stats")
+async def get_flow_run_stats(
+    flow_id: UUID = Path(..., alias="id"),
+    db: PrefectDBInterface = Depends(provide_database_interface),
+) -> FlowRunStatsResponse:
+    """
+    Returns aggregate statistics for all runs of a given flow,
+    including counts by state, success rate, and average duration.
+    """
+    async with db.session_context() as session:
+        flow = await models.flows.read_flow(session=session, flow_id=flow_id)
+        if not flow:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail=f"Flow {flow_id!r} not found.",
+            )
+
+        flow_runs = await models.flow_runs.read_flow_runs(
+            session=session,
+            flow_run_filter=schemas.filters.FlowRunFilter(
+                flow_id=schemas.filters.FlowRunFilterFlowId(any_=[flow_id])
+            ),
+            limit=10000,
+        )
+
+    total = len(flow_runs)
+    completed = sum(1 for r in flow_runs if r.state_type == "COMPLETED")
+    failed = sum(1 for r in flow_runs if r.state_type == "FAILED")
+    cancelled = sum(1 for r in flow_runs if r.state_type == "CANCELLED")
+    running = sum(1 for r in flow_runs if r.state_type == "RUNNING")
+
+    durations = []
+    for r in flow_runs:
+        if r.state_type == "COMPLETED" and r.total_task_run_count is not None:
+            if r.start_time and r.end_time:
+                durations.append((r.end_time - r.start_time).total_seconds())
+
+    avg_duration = sum(durations) / len(durations) if durations else None
+    success_rate = round((completed / total * 100) if total else 0, 2)
+
+    return FlowRunStatsResponse(
+        total_runs=total,
+        completed_runs=completed,
+        failed_runs=failed,
+        cancelled_runs=cancelled,
+        running_runs=running,
+        avg_duration_seconds=round(avg_duration, 2) if avg_duration else None,
+        success_rate=success_rate,
+    )
