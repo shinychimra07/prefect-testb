@@ -100,6 +100,7 @@ jobs:
           skyramp_license_file: ${{ secrets.SKYRAMP_LICENSE_FILE }}
           anthropic_api_key: ${{ secrets.SKYRAMP_TESTBOT_API_KEY }}
           github_token: ${{ steps.app-token.outputs.token }}
+          skip_target_setup: 'true'
           skyramp_mcp_source: github
           skyramp_mcp_github_token: ${{ secrets.PAT_TOKEN }}
           skyramp_mcp_github_ref: shiny/SKYR-3644
