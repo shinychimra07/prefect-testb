@@ -2,9 +2,11 @@ version: '3.8'
 
 services:
   prefect-server:
-    image: prefecthq/prefect:2-latest
+    build:
+      context: ..
+      dockerfile: deployment-testbot/Dockerfile.testbot
     container_name: testbot-prefect
-    command: prefect server start --host 0.0.0.0
+    command: uv run prefect server start --host 0.0.0.0
     ports:
       - "4200:4200"
     environment:
