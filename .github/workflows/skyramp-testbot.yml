@@ -3,74 +3,11 @@ name: Skyramp Testbot
 on:
   pull_request:
     types: [opened, synchronize, reopened]
-    paths:
-      # Common source directories
-      - 'src/**'
-      - 'app/**'
-      - 'lib/**'
-      - 'api/**'
-      - 'server/**'
-      - 'backend/**'
-      - 'frontend/**'
-      - 'web/**'
-      - 'core/**'
-      # Monorepo patterns
-      - 'packages/**'
-      - 'apps/**'
-      - 'services/**'
-      # Go conventions
-      - 'cmd/**'
-      - 'pkg/**'
-      - 'internal/**'
-      # Rust workspaces
-      - 'crates/**'
-      # Serverless
-      - 'functions/**'
-      # Frontend framework conventions
-      - 'pages/**'
-      - 'components/**'
-      # Ruby/Rails
-      - 'db/**'
-      - 'config/**'
-      # Common web patterns
-      - 'routes/**'
-      - 'controllers/**'
-      - 'models/**'
-      - 'views/**'
-      - 'handlers/**'
-      - 'middleware/**'
-      # Tests
-      - 'tests/**'
-      - 'test/**'
-      - 'spec/**'
-      # Build and dependency files
-      - 'package.json'
-      - 'package-lock.json'
-      - 'yarn.lock'
-      - 'pnpm-lock.yaml'
-      - 'pyproject.toml'
-      - 'setup.py'
-      - 'setup.cfg'
-      - 'requirements*.txt'
-      - 'Pipfile'
-      - 'poetry.lock'
-      - 'go.mod'
-      - 'go.sum'
-      - 'Cargo.toml'
-      - 'Cargo.lock'
-      - 'pom.xml'
-      - 'build.gradle'
-      - 'build.gradle.kts'
-      - 'Gemfile'
-      - 'Gemfile.lock'
-      - '*.csproj'
-      - '*.sln'
-      - 'Dockerfile'
-      - 'docker-compose.yml'
-      - 'docker-compose.yaml'
+  issue_comment:
+    types: [created]
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.head_ref }}
+  group: ${{ github.workflow }}-${{ github.event.pull_request.head.ref || github.run_id }}
   cancel-in-progress: true
 
 jobs:
@@ -81,8 +18,6 @@ jobs:
       pull-requests: write
 
     steps:
-      # Generate a GitHub App installation token to retrigger CI workflows on push
-      # https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow
       - name: Generate GitHub App Token
         id: app-token
         uses: actions/create-github-app-token@v1
@@ -95,8 +30,22 @@ jobs:
           fetch-depth: 0
           token: ${{ steps.app-token.outputs.token }}
 
-      - uses: skyramp/testbot@v0.3.2
+      - uses: skyramp/testbot@v0.5.2
         with:
           skyramp_license_file: ${{ secrets.SKYRAMP_LICENSE_FILE }}
           anthropic_api_key: ${{ secrets.SKYRAMP_TESTBOT_API_KEY }}
           github_token: ${{ steps.app-token.outputs.token }}
+          skyramp_mcp_source: github
+          skyramp_mcp_github_token: ${{ secrets.PAT_TOKEN }}
+          skyramp_mcp_github_ref: shiny/recommendation-consistency
+          skyramp_executor_version: v1.3.14
+
+          target_setup_command: './deployment-testbot/setup.sh'
+          target_ready_check_command: 'curl -f http://localhost:4200/api/health'
+          target_ready_check_timeout: 90
+          auth_token_command: './deployment-testbot/get-token.sh'
+
+          test_directory: 'tests'
+          auto_commit: true
+          post_pr_comment: true
+          enable_debug: true
