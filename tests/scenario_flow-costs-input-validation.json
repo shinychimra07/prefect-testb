@@ -1,0 +1,28 @@
+[
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "{\"flow_run_id\": \"550e8400-e29b-41d4-a716-446655440003\", \"compute_seconds\": -10.0, \"memory_mb\": 256.0}",
+    "ResponseBody": "{}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "Authorization": [
+        "Basic SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "POST",
+    "Path": "/api/flow-costs/",
+    "QueryParams": {},
+    "StatusCode": 422,
+    "Port": 4200,
+    "Timestamp": "2026-03-24T21:37:36.821Z",
+    "Scheme": "http"
+  }
+]
