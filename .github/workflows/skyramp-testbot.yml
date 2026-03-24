@@ -103,3 +103,4 @@ jobs:
           skyramp_mcp_source: github
           skyramp_mcp_github_token: ${{ secrets.PAT_TOKEN }}
           skyramp_mcp_github_ref: shiny/recommendation-consistency
+          skip_target_setup: true
