@@ -1,0 +1,27 @@
+FROM python:3.10-slim
+
+WORKDIR /opt/prefect
+
+# Install system deps (git is needed by versioningit's write_build_info hook at build time)
+RUN apt-get update && apt-get install -y --no-install-recommends curl git && rm -rf /var/lib/apt/lists/*
+
+# Install uv
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /usr/local/bin/uv
+
+# Copy dependency files first for layer caching
+COPY pyproject.toml uv.lock README.md ./
+
+# Copy source and build tools
+COPY src/ ./src/
+COPY client/ ./client/
+# tools/ contains write_build_info.py, which versioningit calls during the build
+# to write src/prefect/_build_info.py. Without it uv sync fails.
+COPY tools/ ./tools/
+
+# Copy deployment scripts
+COPY deployment-testbot/ensure-tables.py ./ensure-tables.py
+
+# Install prefect from source (no dev deps)
+RUN uv sync --no-dev --frozen
+
+CMD ["uv", "run", "prefect", "server", "start", "--host", "0.0.0.0"]
