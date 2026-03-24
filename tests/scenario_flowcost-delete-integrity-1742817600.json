@@ -1,0 +1,106 @@
+[
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "{\"flow_run_id\": \"c3d4e5f6-a7b8-9012-cdef-012345678901\", \"compute_seconds\": 300.0, \"memory_mb\": 1024.0, \"external_cost_usd\": 0.25, \"cost_center\": \"data-team\"}",
+    "ResponseBody": "{\"id\": \"d4e5f6a7-b8c9-0123-defa-123456789012\", \"flow_run_id\": \"c3d4e5f6-a7b8-9012-cdef-012345678901\", \"compute_seconds\": 300.0, \"memory_mb\": 1024.0, \"external_cost_usd\": 0.25, \"total_cost_usd\": 0.898, \"cost_center\": \"data-team\", \"recorded_at\": \"2026-03-24T00:00:00\"}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "Authorization": [
+        "Bearer SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "POST",
+    "Path": "/api/flow-costs/",
+    "QueryParams": {},
+    "StatusCode": 201,
+    "Port": 4200,
+    "Timestamp": "2026-03-24T23:21:35.534Z",
+    "Scheme": "http"
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "",
+    "ResponseBody": "{\"id\": \"d4e5f6a7-b8c9-0123-defa-123456789012\", \"flow_run_id\": \"c3d4e5f6-a7b8-9012-cdef-012345678901\", \"compute_seconds\": 300.0, \"memory_mb\": 1024.0, \"external_cost_usd\": 0.25, \"total_cost_usd\": 0.898, \"cost_center\": \"data-team\", \"recorded_at\": \"2026-03-24T00:00:00\"}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "Authorization": [
+        "Bearer SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "GET",
+    "Path": "/api/flow-costs/d4e5f6a7-b8c9-0123-defa-123456789012",
+    "QueryParams": {},
+    "StatusCode": 200,
+    "Port": 4200,
+    "Timestamp": "2026-03-24T23:21:41.974Z",
+    "Scheme": "http"
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "",
+    "ResponseBody": "{}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "Authorization": [
+        "Bearer SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "DELETE",
+    "Path": "/api/flow-costs/d4e5f6a7-b8c9-0123-defa-123456789012",
+    "QueryParams": {},
+    "StatusCode": 204,
+    "Port": 4200,
+    "Timestamp": "2026-03-24T23:21:45.887Z",
+    "Scheme": "http"
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "",
+    "ResponseBody": "{\"detail\": \"Cost record not found\"}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "Authorization": [
+        "Bearer SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "GET",
+    "Path": "/api/flow-costs/d4e5f6a7-b8c9-0123-defa-123456789012",
+    "QueryParams": {},
+    "StatusCode": 404,
+    "Port": 4200,
+    "Timestamp": "2026-03-24T23:21:49.417Z",
+    "Scheme": "http"
+  }
+]
