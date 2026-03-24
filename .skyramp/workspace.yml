@@ -1,9 +1,0 @@
-version: "1"
-services:
-  - name: prefect-api
-    language: python
-    framework: pytest
-    outputDir: skyramp-tests
-    api:
-      baseUrl: http://localhost:4200
-      authHeader: ""
