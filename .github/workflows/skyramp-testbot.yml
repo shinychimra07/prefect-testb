@@ -100,3 +100,6 @@ jobs:
           skyramp_license_file: ${{ secrets.SKYRAMP_LICENSE_FILE }}
           anthropic_api_key: ${{ secrets.SKYRAMP_TESTBOT_API_KEY }}
           github_token: ${{ steps.app-token.outputs.token }}
+          skyramp_mcp_source: github
+          skyramp_mcp_github_token: ${{ steps.app-token.outputs.token }}
+          skyramp_mcp_github_ref: shiny/recommendation-consistency
