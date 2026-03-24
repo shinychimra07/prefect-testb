@@ -39,7 +39,7 @@ def test_integration():
     # Execute Request
     endpoint_2_POST_response = client.send_request(
         url=URL_localhost,
-        path="/api/api/flow-costs/budgets/",
+        path="/api/flow-costs/budgets/",
         method="POST",
         body=endpoint_2_POST_request_body,
         headers=headers,
@@ -60,7 +60,7 @@ def test_integration():
     # Execute Request
     endpoint_1_POST_response = client.send_request(
         url=URL_localhost,
-        path="/api/api/flow-costs/",
+        path="/api/flow-costs/",
         method="POST",
         body=endpoint_1_POST_request_body,
         headers=headers,
@@ -72,7 +72,7 @@ def test_integration():
     # Execute Request
     budgets_GET_response = client.send_request(
         url=URL_localhost,
-        path="/api/api/flow-costs/budgets/{budgets}",
+        path="/api/flow-costs/budgets/{budgets}",
         method="GET",
         headers=headers,
         path_params={"budgets": cost_center}

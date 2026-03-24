@@ -39,7 +39,7 @@ def test_integration():
     # Execute Request
     endpoint_1_POST_response = client.send_request(
         url=URL_localhost,
-        path="/api/api/flow-costs/",
+        path="/api/flow-costs/",
         method="POST",
         body=endpoint_1_POST_request_body,
         headers=headers
@@ -50,7 +50,7 @@ def test_integration():
     # Execute Request
     flow_costs_GET_response = client.send_request(
         url=URL_localhost,
-        path="/api/api/flow-costs/{flow-costs}",
+        path="/api/flow-costs/{flow-costs}",
         method="GET",
         headers=headers,
         path_params={"flow-costs": skyramp.get_response_value(endpoint_1_POST_response, "id")}
@@ -67,7 +67,7 @@ def test_integration():
     # Execute Request
     flow_costs_PUT_response = client.send_request(
         url=URL_localhost,
-        path="/api/api/flow-costs/{flow-costs}",
+        path="/api/flow-costs/{flow-costs}",
         method="PUT",
         body=flow_costs_PUT_request_body,
         headers=headers,
@@ -79,7 +79,7 @@ def test_integration():
     # Execute Request
     flow_costs_DELETE_response = client.send_request(
         url=URL_localhost,
-        path="/api/api/flow-costs/{flow-costs}",
+        path="/api/flow-costs/{flow-costs}",
         method="DELETE",
         headers=headers,
         path_params={"flow-costs": skyramp.get_response_value(endpoint_1_POST_response, "id")}
@@ -99,7 +99,7 @@ def test_integration():
     # Execute Request
     endpoint_1_POST_1_response = client.send_request(
         url=URL_localhost,
-        path="/api/api/flow-costs/",
+        path="/api/flow-costs/",
         method="POST",
         body=endpoint_1_POST_1_request_body,
         data_override={
