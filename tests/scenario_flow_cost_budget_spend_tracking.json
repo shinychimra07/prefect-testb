@@ -1,0 +1,80 @@
+[
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "{\"cost_center\": \"ml-team\", \"monthly_budget_usd\": 100.0, \"alert_threshold_pct\": 80.0}",
+    "ResponseBody": "{\"id\": \"b2c3d4e5-f6a7-8901-bcde-f12345678901\", \"cost_center\": \"ml-team\", \"monthly_budget_usd\": 100.0, \"alert_threshold_pct\": 80.0, \"current_spend_usd\": 0.0, \"budget_remaining_usd\": 100.0, \"pct_used\": 0.0, \"created_at\": \"2026-03-24T00:00:00Z\"}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "Authorization": [
+        "Bearer SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "POST",
+    "Path": "/api/api/flow-costs/budgets/",
+    "QueryParams": {},
+    "StatusCode": 201,
+    "Port": 4200,
+    "Timestamp": "2026-03-24T20:06:57.897Z",
+    "Scheme": "http"
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "{\"flow_run_id\": \"c3d4e5f6-a7b8-9012-cdef-123456789012\", \"compute_seconds\": 3600.0, \"memory_mb\": 2048.0, \"external_cost_usd\": 5.0, \"cost_center\": \"ml-team\"}",
+    "ResponseBody": "{\"id\": \"d4e5f6a7-b8c9-0123-defa-234567890123\", \"flow_run_id\": \"c3d4e5f6-a7b8-9012-cdef-123456789012\", \"compute_seconds\": 3600.0, \"memory_mb\": 2048.0, \"external_cost_usd\": 5.0, \"total_cost_usd\": 5.864736, \"cost_center\": \"ml-team\", \"recorded_at\": \"2026-03-24T00:00:00Z\"}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "Authorization": [
+        "Bearer SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "POST",
+    "Path": "/api/api/flow-costs/",
+    "QueryParams": {},
+    "StatusCode": 201,
+    "Port": 4200,
+    "Timestamp": "2026-03-24T20:07:03.654Z",
+    "Scheme": "http"
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "",
+    "ResponseBody": "{\"id\": \"b2c3d4e5-f6a7-8901-bcde-f12345678901\", \"cost_center\": \"ml-team\", \"monthly_budget_usd\": 100.0, \"alert_threshold_pct\": 80.0, \"current_spend_usd\": 5.864736, \"budget_remaining_usd\": 94.135264, \"pct_used\": 5.86, \"created_at\": \"2026-03-24T00:00:00Z\"}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "Authorization": [
+        "Bearer SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "GET",
+    "Path": "/api/api/flow-costs/budgets/ml-team",
+    "QueryParams": {},
+    "StatusCode": 200,
+    "Port": 4200,
+    "Timestamp": "2026-03-24T20:07:10.712Z",
+    "Scheme": "http"
+  }
+]
