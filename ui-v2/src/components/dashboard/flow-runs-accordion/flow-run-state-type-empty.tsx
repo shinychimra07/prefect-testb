@@ -74,10 +74,10 @@ export function FlowRunStateTypeEmpty({
 	const ImageComponent = getImageComponent(stateTypes);
 
 	return (
-		<div className="flex flex-col items-center gap-8 my-20">
-			{ImageComponent && <ImageComponent className="h-32" />}
-			<p className="text-lg text-center max-w-xs">
-				You currently have 0 {statesString} runs.
+		<div className="flex flex-col items-center gap-8 my-24">
+			{ImageComponent && <ImageComponent className="h-36" />}
+			<p className="text-lg text-center max-w-sm text-muted-foreground">
+				No {statesString} runs found.
 			</p>
 		</div>
 	);
