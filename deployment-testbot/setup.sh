@@ -2,23 +2,25 @@
 set -e
 
 # TestBot Setup Script for Prefect
-# This script starts Prefect server and registers sample flows
+# Builds the server from local source and starts all services
 
 cd "$(dirname "$0")"
 
-echo "Starting Prefect service..."
-docker compose up -d
+echo "Building Prefect server from local source..."
+docker compose build --no-cache --pull prefect-server
 
-echo "Waiting for service to be ready..."
-sleep 15
+echo "Starting Prefect services..."
+docker compose up -d --wait
+
+echo "Ensuring all database tables exist..."
+docker compose exec -T prefect-server uv run python3 /opt/prefect/ensure-tables.py
 
 echo "Creating sample flows..."
 # Create Python script for sample flows
 docker compose exec -T prefect-server bash << 'EOF'
 export PREFECT_API_URL=http://localhost:4200/api
-pip install -q httpx 2>/dev/null || true
 
-python3 << 'PYEOF'
+uv run python3 << 'PYEOF'
 from prefect import flow, task
 
 @task
