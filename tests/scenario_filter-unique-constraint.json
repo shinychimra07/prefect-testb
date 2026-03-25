@@ -1,0 +1,48 @@
+[
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "{\"sort\":\"CREATED_DESC\",\"limit\":10,\"offset\":0,\"artifacts\":{},\"flow_runs\":{},\"task_runs\":{},\"flows\":{},\"deployments\":{}}",
+    "ResponseBody": "[]",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "POST",
+    "Path": "/api/artifacts/filter",
+    "QueryParams": {},
+    "StatusCode": 201,
+    "Port": 4200,
+    "Timestamp": "2026-03-25T16:15:25.476Z",
+    "Scheme": "http"
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "{\"sort\":\"CREATED_DESC\",\"limit\":10,\"offset\":0,\"artifacts\":{},\"flow_runs\":{},\"task_runs\":{},\"flows\":{},\"deployments\":{}}",
+    "ResponseBody": "{}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "POST",
+    "Path": "/api/artifacts/filter",
+    "QueryParams": {},
+    "StatusCode": 409,
+    "Port": 4200,
+    "Timestamp": "2026-03-25T16:15:29.631Z",
+    "Scheme": "http"
+  }
+]
