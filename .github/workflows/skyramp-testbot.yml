@@ -29,6 +29,9 @@ on:
       # Frontend framework conventions
       - 'pages/**'
       - 'components/**'
+      # UI subdirectories (e.g. ui-v2/, ui/, client/)
+      - 'ui*/**'
+      - 'client/**'
       # Ruby/Rails
       - 'db/**'
       - 'config/**'
