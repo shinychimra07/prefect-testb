@@ -1,0 +1,54 @@
+[
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "{\"flow_run_id\": \"550e8400-e29b-41d4-a716-446655440001\", \"compute_seconds\": 3600.0, \"memory_mb\": 512.0, \"external_cost_usd\": 1.5, \"cost_center\": \"ml-training\"}",
+    "ResponseBody": "{\"id\": \"a1b2c3d4-e5f6-7890-abcd-ef1234567890\", \"flow_run_id\": \"550e8400-e29b-41d4-a716-446655440001\", \"compute_seconds\": 3600.0, \"memory_mb\": 512.0, \"external_cost_usd\": 1.5, \"total_cost_usd\": 2.2032, \"cost_center\": \"ml-training\", \"recorded_at\": \"2026-03-25T00:00:00\"}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "Authorization": [
+        "Bearer SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "POST",
+    "Path": "/api/flow-costs/",
+    "QueryParams": {},
+    "StatusCode": 201,
+    "Port": 4200,
+    "Timestamp": "2026-03-25T16:14:58.722Z",
+    "Scheme": "http"
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "",
+    "ResponseBody": "{\"id\": \"a1b2c3d4-e5f6-7890-abcd-ef1234567890\", \"flow_run_id\": \"550e8400-e29b-41d4-a716-446655440001\", \"compute_seconds\": 3600.0, \"memory_mb\": 512.0, \"external_cost_usd\": 1.5, \"total_cost_usd\": 2.2032, \"cost_center\": \"ml-training\", \"recorded_at\": \"2026-03-25T00:00:00\"}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "Authorization": [
+        "Bearer SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "GET",
+    "Path": "/api/flow-costs/a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "QueryParams": {},
+    "StatusCode": 200,
+    "Port": 4200,
+    "Timestamp": "2026-03-25T16:15:04.773Z",
+    "Scheme": "http"
+  }
+]
