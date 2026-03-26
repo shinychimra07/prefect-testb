@@ -12,9 +12,10 @@ import {
 export const DashboardFlowRunsEmptyState = (): JSX.Element => (
 	<EmptyState>
 		<EmptyStateIcon id="Workflow" />
-		<EmptyStateTitle>Run a task or flow to get started</EmptyStateTitle>
+		<EmptyStateTitle>No runs yet — kick things off!</EmptyStateTitle>
 		<EmptyStateDescription>
-			Runs store the state history for each execution of a task or flow.
+			Each time a task or flow executes, a run is recorded here with its full
+			state history and logs.
 		</EmptyStateDescription>
 		<EmptyStateActions>
 			<DocsLink id="getting-started" />
