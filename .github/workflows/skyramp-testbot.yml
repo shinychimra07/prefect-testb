@@ -95,8 +95,9 @@ jobs:
           fetch-depth: 0
           token: ${{ steps.app-token.outputs.token }}
 
-      - uses: skyramp/testbot@v0.3.2
+      - uses: skyramp/testbot@v0.6.2
         with:
-          skyramp_license_file: ${{ secrets.SKYRAMP_LICENSE_FILE }}
-          anthropic_api_key: ${{ secrets.SKYRAMP_TESTBOT_API_KEY }}
-          github_token: ${{ steps.app-token.outputs.token }}
+          skyrampLicenseFile: ${{ secrets.SKYRAMP_LICENSE_FILE }}
+          anthropicApiKey: ${{ secrets.SKYRAMP_TESTBOT_API_KEY }}
+          githubToken: ${{ steps.app-token.outputs.token }}
+          skyrampMcpVersion: next
